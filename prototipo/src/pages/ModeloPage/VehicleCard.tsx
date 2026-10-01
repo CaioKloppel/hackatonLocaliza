@@ -9,7 +9,7 @@ export function VehicleCard() {
   return (
     <article className={styles.card} aria-label={`${dolphin.nome} ${dolphin.versao}`}>
       <div className={styles.imagemArea}>
-        <img src={asset(dolphin.imagem)} alt={`${dolphin.nome} na cor ${cor.nome}`} className={styles.imagem} />
+        <img src={asset(cor.imagem)} alt={`${dolphin.nome} na cor ${cor.nome}`} className={styles.imagem} />
       </div>
       <div className={styles.info}>
         <div>

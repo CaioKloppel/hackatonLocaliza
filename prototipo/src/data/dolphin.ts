@@ -31,6 +31,7 @@ export interface Destaque {
 export interface CorVeiculo {
   nome: string
   hex: string
+  imagem: string
 }
 
 export interface ItemComIcone {
@@ -44,7 +45,6 @@ export const dolphin = {
   nome: 'BYD Dolphin',
   versao: 'EV 44KW Elétrico AT',
   categoria: 'Eletrico',
-  imagem: 'assets/carros/byd-dolphin.webp',
   destaques: [
     { rotulo: "Multimídia 12.8'' pol", icone: Monitor },
     { rotulo: 'Automático', icone: Settings2 },
@@ -52,9 +52,9 @@ export const dolphin = {
     { rotulo: '5 Lugares', icone: Users },
   ] satisfies Destaque[],
   cores: [
-    { nome: 'Cheese White', hex: '#ffffff' },
-    { nome: 'Preto', hex: '#111111' },
-    { nome: 'Cinza', hex: '#6e6e6e' },
+    { nome: 'Cheese White', hex: '#f7f7f2', imagem: 'assets/carros/byd-dolphin.webp' },
+    { nome: 'Obsidian Black', hex: '#0a0a0a', imagem: 'assets/carros/byd-dolphin-obsidian-black.webp' },
+    { nome: 'Time Grey', hex: '#6a6e73', imagem: 'assets/carros/byd-dolphin-time-grey.webp' },
   ] satisfies CorVeiculo[],
 }
 

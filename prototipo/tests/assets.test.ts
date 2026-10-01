@@ -6,6 +6,8 @@ const publico = resolve(process.cwd(), 'public')
 
 const webps = [
   'byd-dolphin',
+  'byd-dolphin-obsidian-black',
+  'byd-dolphin-time-grey',
   'byd-dolphin-mini-30kw',
   'byd-dolphin-mini-38kw',
   'geely-ex2-pro',
