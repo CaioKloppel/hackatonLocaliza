@@ -32,7 +32,7 @@ export function AssinantePage() {
   return (
     <main className={styles.pagina}>
       <div className={styles.container}>
-        <VertenteTag n={3} />
+        <VertenteTag />
         <p className={styles.saudacao}>Olá, {assinante.nome}</p>
         <h1 className={styles.titulo}>Minha assinatura</h1>
 

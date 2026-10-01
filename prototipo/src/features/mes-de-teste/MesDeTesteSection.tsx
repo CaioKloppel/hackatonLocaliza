@@ -21,7 +21,7 @@ export function MesDeTesteSection() {
       id="mes-de-teste"
       titulo="Mês de teste: experimente antes de assinar"
       icone={<CalendarCheck size={20} />}
-      tag={<VertenteTag n={1} />}
+      tag={<VertenteTag />}
       abertoInicial={false}
     >
       <ol className={styles.linhaDoTempo}>

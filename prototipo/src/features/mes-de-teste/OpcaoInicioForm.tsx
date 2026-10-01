@@ -12,7 +12,7 @@ interface Props {
 export function OpcaoInicioForm({ valor, onChange }: Props) {
   return (
     <div className={styles.bloco}>
-      <VertenteTag n={1} />
+      <VertenteTag />
       <SegmentedCards
         nome="inicio"
         rotulo="Como quer começar?"
