@@ -29,6 +29,9 @@ function AplicarParametroTeste({ params }: { params: URLSearchParams }) {
       setInicio('teste')
       limparParamsHash()
       rolarParaOrcamento()
+    } else if (params.get('orcamento') === '1') {
+      limparParamsHash()
+      rolarParaOrcamento()
     } else {
       window.scrollTo(0, 0)
     }

@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { App } from './App'
 import { renderComProviders } from './test/render'
 
@@ -46,5 +46,20 @@ describe('App', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Minha assinatura' })).toBeInTheDocument()
     expect(screen.queryByRole('switch')).not.toBeInTheDocument()
     expect(screen.getByRole('link', { name: '← Página do modelo' })).toHaveAttribute('href', '#/')
+  })
+it('link ?modo=atual#/assinante força o modo proposta', () => {
+    renderComProviders(<App />, '/?modo=atual#/assinante')
+    expect(window.location.search).toBe('?modo=proposta')
+    expect(screen.getByRole('button', { name: 'Área do assinante' })).toBeInTheDocument()
+  })
+
+  it('"Solicitar orçamento" do header na tela do assinante leva ao formulário', async () => {
+    const user = userEvent.setup()
+    renderComProviders(<App />, '/#/assinante')
+    vi.mocked(window.scrollTo).mockClear()
+    await user.click(screen.getAllByRole('button', { name: 'Solicitar orçamento' })[0])
+    expect(await screen.findByRole('heading', { level: 1, name: 'BYD Dolphin' })).toBeInTheDocument()
+    expect(window.location.hash).toBe('#/')
+    expect(window.scrollTo).not.toHaveBeenCalled()
   })
 })

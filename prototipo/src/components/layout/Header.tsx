@@ -21,7 +21,7 @@ export function Header({ rota }: { rota: Rota }) {
   }
 
   const solicitarOrcamento = () => {
-    if (rota === 'assinante') window.location.hash = '#/'
+    if (rota === 'assinante') window.location.hash = '#/?orcamento=1'
     else rolarParaOrcamento()
   }
 

@@ -1,6 +1,6 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { ModeloPage } from '../../pages/ModeloPage/ModeloPage'
 import { renderComProviders } from '../../test/render'
 
@@ -39,5 +39,12 @@ describe('Vertente 1 na página do modelo', () => {
     renderComProviders(<ModeloPage params={new URLSearchParams('teste=1')} />, '/?modo=atual#/?teste=1')
     expect(screen.getByRole('radio', { name: /mês de teste/i })).toBeChecked()
     expect(window.location.search).toBe('?modo=proposta')
+  })
+it('#/?orcamento=1 não volta ao topo e limpa o hash', () => {
+    vi.mocked(window.scrollTo).mockClear()
+    renderComProviders(<ModeloPage params={new URLSearchParams('orcamento=1')} />, '/#/?orcamento=1')
+    expect(window.scrollTo).not.toHaveBeenCalled()
+    expect(window.location.hash).toBe('#/')
+    expect(screen.getByRole('radio', { name: /assinar agora/i })).toBeChecked()
   })
 })
