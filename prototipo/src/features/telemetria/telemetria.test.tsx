@@ -22,7 +22,7 @@ describe('DadosFrotaSection', () => {
       expect(within(secao).getByRole('heading', { level: 3, name: p })).toBeInTheDocument()
     }
     expect(within(secao).getByText(/412 BYD Dolphin da frota Localiza/)).toBeInTheDocument()
-    expect(within(secao).getByText('Vertente 3 · Telemetria')).toBeInTheDocument()
+    expect(within(secao).getByText('Campo adicionado')).toBeInTheDocument()
   })
 })
 

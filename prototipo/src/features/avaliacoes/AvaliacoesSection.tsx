@@ -36,7 +36,7 @@ export function AvaliacoesSection() {
   }
 
   return (
-    <Accordion id="avaliacoes" titulo="Avaliações de assinantes" icone={<Star size={20} />} tag={<VertenteTag n={2} />} abertoInicial={false}>
+    <Accordion id="avaliacoes" titulo="Avaliações de assinantes" icone={<Star size={20} />} tag={<VertenteTag />} abertoInicial={false}>
       <ResumoNotas resumo={resumoAvaliacoes} />
       <FiltrosPerfil filtros={filtros} onAlternar={alternar} />
 

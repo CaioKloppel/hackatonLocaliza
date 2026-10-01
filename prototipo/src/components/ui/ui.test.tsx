@@ -40,9 +40,9 @@ describe('Chip', () => {
 })
 
 describe('VertenteTag', () => {
-  it('mostra número e nome da vertente', () => {
-    render(<VertenteTag n={2} />)
-    expect(screen.getByText('Vertente 2 · Avaliações')).toBeInTheDocument()
+  it('mostra o rótulo de campo adicionado', () => {
+    render(<VertenteTag />)
+    expect(screen.getByText('Campo adicionado')).toBeInTheDocument()
   })
 })
 

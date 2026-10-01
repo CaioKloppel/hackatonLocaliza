@@ -41,7 +41,7 @@ export function RelatorioPage() {
     return (
       <main className={styles.pagina}>
         <div className={styles.container}>
-          <VertenteTag n={1} />
+          <VertenteTag />
           <NotificacaoDia25 nome={c.nome} onAbrir={() => setAberto(true)} />
         </div>
       </main>
@@ -53,7 +53,7 @@ export function RelatorioPage() {
   return (
     <main className={styles.pagina}>
       <div className={styles.container}>
-        <VertenteTag n={1} />
+        <VertenteTag />
         <p className={styles.saudacao}>Olá, {c.nome}</p>
         <h1 className={styles.titulo}>Seu mês em números</h1>
         <p className={styles.subtitulo}>
