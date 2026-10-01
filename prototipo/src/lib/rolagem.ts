@@ -2,9 +2,16 @@ function reduzirMovimento(): boolean {
   return window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false
 }
 
+export const EVENTO_ABRIR_SECAO = 'abrir-secao'
+
+/** Abre a seção (acordeão) com esse id, se estiver fechada, e rola até ela. */
 export function rolarPara(id: string): void {
-  const el = document.getElementById(id)
-  el?.scrollIntoView({ behavior: reduzirMovimento() ? 'auto' : 'smooth', block: 'start' })
+  window.dispatchEvent(new CustomEvent<string>(EVENTO_ABRIR_SECAO, { detail: id }))
+  // Rola no tick seguinte: abrir a seção muda a altura da página e interromperia o scroll suave.
+  window.setTimeout(() => {
+    const el = document.getElementById(id)
+    el?.scrollIntoView({ behavior: reduzirMovimento() ? 'auto' : 'smooth', block: 'start' })
+  }, 0)
 }
 
 export function focarPrimeiroVazio(id: string): void {

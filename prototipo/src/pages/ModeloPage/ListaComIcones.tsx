@@ -13,11 +13,12 @@ interface Props {
   variante: 'incluso' | 'adicional'
   rodape: ReactNode
   botao: { rotulo: string; variante: 'outline' | 'outlineDark' }
+  abertoInicial?: boolean
 }
 
-export function ListaComIcones({ id, titulo, itens, variante, rodape, botao }: Props) {
+export function ListaComIcones({ id, titulo, itens, variante, rodape, botao, abertoInicial = true }: Props) {
   return (
-    <Accordion id={id} titulo={titulo} icone={<List size={20} />}>
+    <Accordion id={id} titulo={titulo} icone={<List size={20} />} abertoInicial={abertoInicial}>
       <ul className={styles.lista}>
         {itens.map(({ titulo: t, descricao, negrito, icone: Icone }) => (
           <li key={t} className={styles.item}>

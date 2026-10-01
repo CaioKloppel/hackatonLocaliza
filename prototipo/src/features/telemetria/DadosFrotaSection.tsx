@@ -11,7 +11,7 @@ export function DadosFrotaSection() {
   const f = fatosFrota
   const ultimo = f.saudeBateria[f.saudeBateria.length - 1]
   return (
-    <Accordion id="dados-frota" titulo="Dados reais da frota Localiza" icone={<Gauge size={20} />} tag={<VertenteTag n={3} />}>
+    <Accordion id="dados-frota" titulo="Dados reais da frota Localiza" icone={<Gauge size={20} />} tag={<VertenteTag n={3} />} abertoInicial={false}>
       <div className={styles.grade}>
         <FatoCard pergunta="O carro chega aonde eu preciso?" icone={Route}>
           <p className={styles.duplo}>

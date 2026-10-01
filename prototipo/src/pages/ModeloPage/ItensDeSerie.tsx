@@ -13,7 +13,7 @@ export function ItensDeSerie() {
   }, [busca])
 
   return (
-    <Accordion id="itens-de-serie" titulo="Itens de série" icone={<List size={20} />} contador={filtrados.length}>
+    <Accordion id="itens-de-serie" titulo="Itens de série" icone={<List size={20} />} contador={filtrados.length} abertoInicial={false}>
       <div className={styles.busca}>
         <Search size={20} aria-hidden="true" className={styles.lupa} />
         <input

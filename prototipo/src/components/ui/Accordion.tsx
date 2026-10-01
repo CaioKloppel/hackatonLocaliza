@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react'
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
+import { EVENTO_ABRIR_SECAO } from '../../lib/rolagem'
 import styles from './Accordion.module.css'
 
 interface Props {
@@ -15,6 +16,14 @@ interface Props {
 export function Accordion({ id, titulo, icone, contador, tag, abertoInicial = true, children }: Props) {
   const [aberto, setAberto] = useState(abertoInicial)
   const painelId = `${id}-painel`
+
+  useEffect(() => {
+    const abrir = (e: Event) => {
+      if ((e as CustomEvent<string>).detail === id) setAberto(true)
+    }
+    window.addEventListener(EVENTO_ABRIR_SECAO, abrir)
+    return () => window.removeEventListener(EVENTO_ABRIR_SECAO, abrir)
+  }, [id])
   return (
     <section id={id} className={styles.item}>
       {tag && <div className={styles.tag}>{tag}</div>}

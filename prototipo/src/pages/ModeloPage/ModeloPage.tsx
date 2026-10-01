@@ -80,6 +80,7 @@ export function ModeloPage({ params }: { params: URLSearchParams }) {
                 variante="adicional"
                 rodape="Personalize sua assinatura com os adicionais disponíveis e tenha um veículo ainda mais alinhado ao seu estilo de vida e às suas necessidades."
                 botao={{ rotulo: 'Solicitar orçamento', variante: 'outlineDark' }}
+                abertoInicial={false}
               />
               {proposta && <AvaliacoesSection />}
             </div>

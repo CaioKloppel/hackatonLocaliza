@@ -22,6 +22,7 @@ export function MesDeTesteSection() {
       titulo="Mês de teste: experimente antes de assinar"
       icone={<CalendarCheck size={20} />}
       tag={<VertenteTag n={1} />}
+      abertoInicial={false}
     >
       <ol className={styles.linhaDoTempo}>
         {PASSOS.map(({ titulo, texto, icone: Icone }, i) => (

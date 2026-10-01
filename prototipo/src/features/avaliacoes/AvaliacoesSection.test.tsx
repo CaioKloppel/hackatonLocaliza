@@ -1,13 +1,18 @@
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { AvaliacoesSection } from './AvaliacoesSection'
 
 const cards = () => screen.queryAllByRole('article')
 
+function renderAberta() {
+  render(<AvaliacoesSection />)
+  fireEvent.click(screen.getByRole('button', { name: /avaliações de assinantes/i }))
+}
+
 describe('AvaliacoesSection', () => {
   it('mostra resumo, 3 avaliações e o contador', () => {
-    render(<AvaliacoesSection />)
+    renderAberta()
     expect(screen.getByText('128 avaliações verificadas')).toBeInTheDocument()
     expect(screen.getAllByRole('img', { name: 'Nota 4,6 de 5' })[0]).toBeInTheDocument()
     expect(cards()).toHaveLength(3)
@@ -16,7 +21,7 @@ describe('AvaliacoesSection', () => {
 
   it('"Ver mais" adiciona 3 por clique até acabar', async () => {
     const user = userEvent.setup()
-    render(<AvaliacoesSection />)
+    renderAberta()
     await user.click(screen.getByRole('button', { name: 'Ver mais avaliações' }))
     expect(cards()).toHaveLength(6)
     await user.click(screen.getByRole('button', { name: 'Ver mais avaliações' }))
@@ -27,7 +32,7 @@ describe('AvaliacoesSection', () => {
 
   it('filtra por tipo e mostra a resposta da Localiza nas negativas', async () => {
     const user = userEvent.setup()
-    render(<AvaliacoesSection />)
+    renderAberta()
     await user.click(screen.getByRole('button', { name: 'Cliente em teste' }))
     expect(cards()).toHaveLength(2)
     expect(screen.getByText('Mostrando 2 de 2')).toBeInTheDocument()
@@ -39,7 +44,7 @@ describe('AvaliacoesSection', () => {
 
   it('filtros que zeram a lista mostram estado vazio e "Limpar filtros" volta ao início', async () => {
     const user = userEvent.setup()
-    render(<AvaliacoesSection />)
+    renderAberta()
     await user.click(screen.getByRole('button', { name: 'Ver mais avaliações' }))
     await user.click(screen.getByRole('button', { name: 'Cliente em teste' }))
     await user.click(screen.getByRole('button', { name: 'Rua' }))
@@ -53,7 +58,7 @@ describe('AvaliacoesSection', () => {
   })
 
   it('tem nota de transparência', () => {
-    render(<AvaliacoesSection />)
+    renderAberta()
     expect(screen.getByText(/Publicamos avaliações positivas e negativas/)).toBeInTheDocument()
   })
 })

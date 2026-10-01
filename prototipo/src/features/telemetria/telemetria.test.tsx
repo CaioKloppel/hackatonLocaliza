@@ -9,6 +9,7 @@ import { SimuladorEconomia } from './SimuladorEconomia'
 describe('DadosFrotaSection', () => {
   it('mostra as 5 dúvidas, a base de dados e a tag da vertente', () => {
     render(<DadosFrotaSection />)
+    fireEvent.click(screen.getByRole('button', { name: /dados reais da frota/i }))
     const secao = document.getElementById('dados-frota')!
     const perguntas = [
       'O carro chega aonde eu preciso?',
