@@ -1,10 +1,8 @@
-// @vitest-environment node
 import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
-const publico = fileURLToPath(new URL('../public', import.meta.url))
+const publico = resolve(process.cwd(), 'public')
 
 const webps = [
   'byd-dolphin',
