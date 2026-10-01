@@ -54,13 +54,6 @@ export function ModeloPage({ params }: { params: URLSearchParams }) {
             <div className={styles.esquerda}>
               <VehicleCard />
               <ItensDeSerie />
-              {proposta && (
-                <>
-                  <DadosFrotaSection />
-                  <AvaliacoesSection />
-                  <MesDeTesteSection />
-                </>
-              )}
               <ListaComIcones
                 id="incluso"
                 titulo="Incluso na assinatura"
@@ -74,6 +67,12 @@ export function ModeloPage({ params }: { params: URLSearchParams }) {
                 }
                 botao={{ rotulo: 'Quero assinar', variante: 'outline' }}
               />
+              {proposta && (
+                <>
+                  <DadosFrotaSection />
+                  <MesDeTesteSection />
+                </>
+              )}
               <ListaComIcones
                 id="adicionais"
                 titulo="Adicionais"
@@ -82,6 +81,7 @@ export function ModeloPage({ params }: { params: URLSearchParams }) {
                 rodape="Personalize sua assinatura com os adicionais disponíveis e tenha um veículo ainda mais alinhado ao seu estilo de vida e às suas necessidades."
                 botao={{ rotulo: 'Solicitar orçamento', variante: 'outlineDark' }}
               />
+              {proposta && <AvaliacoesSection />}
             </div>
             <aside className={styles.direita} aria-label="Solicitar orçamento">
               <QuoteForm />

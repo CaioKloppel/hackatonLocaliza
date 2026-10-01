@@ -55,4 +55,11 @@ describe('ModeloPage — conteúdo existente', () => {
     await user.click(within(carrossel).getAllByRole('button', { name: 'Tenho Interesse' })[0])
     expect(screen.getByRole('status')).toHaveTextContent('Link desativado no protótipo')
   })
+it('na proposta, as seções seguem a ordem combinada', () => {
+    renderComProviders(<ModeloPage params={new URLSearchParams()} />)
+    const ordem = ['itens-de-serie', 'incluso', 'dados-frota', 'mes-de-teste', 'adicionais', 'avaliacoes']
+    const posicoes = ordem.map((id) => [...document.querySelectorAll('section[id]')].findIndex((s) => s.id === id))
+    expect(posicoes.every((p) => p >= 0)).toBe(true)
+    expect([...posicoes].sort((a, b) => a - b)).toEqual(posicoes)
+  })
 })
