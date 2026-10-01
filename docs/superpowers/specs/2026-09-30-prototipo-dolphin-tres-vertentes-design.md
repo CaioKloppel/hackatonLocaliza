@@ -74,7 +74,7 @@ hackatonLocaliza/
         ├── features/avaliacoes/       AvaliacoesSection, ResumoNotas, FiltrosPerfil, AvaliacaoCard
         ├── features/telemetria/       DadosFrotaSection, FatoCard, SaudeBateriaChart,
         │                              SimuladorEconomia
-        └── pages/AssinantePage/       Stepper, ConsentimentoStep, UsoStep, HistogramaKm,
+        └── pages/AssinantePage/       Stepper, ConsentimentoStep, UsoStep, GraficoDiasKm,
                                        RecargaStep, ResultadoStep
 ```
 
@@ -297,11 +297,12 @@ aviso **"Seu contrato termina em 87 dias"**. Card do carro atual: "Hatch 1.0 Tur
    recomendação de elétrico? Usamos só para esta finalidade." Botões: "Autorizo" e "Agora não". Com
    "Agora não", a tela mostra só "Renovar com meu carro atual" e para.
 2. **Seu uso nos últimos 12 meses** (telemetria do cliente):
-   - km por mês: 2.000; maior distância em um dia: 310 km; viagens longas (>150 km): cerca de 3 por
-     mês; consumo real: 12 km/l;
-   - `HistogramaKm`: histograma SVG dos 365 km diários em faixas de 25 km, com linhas verticais da
-     autonomia real do Dolphin (290 km) e do Dolphin Mini (190 km) e o % de dias cobertos por cada
-     uma.
+   - km por mês: 2.000; maior distância em um dia: 310 km; viagens longas (>150 km): cerca de 2 por
+     mês (calculado dos km diários); consumo real: 12 km/l;
+   - `GraficoDiasKm`: gráfico SVG com uma barra por dia (365), ordenadas do dia mais longo ao mais
+     curto, e linhas horizontais da autonomia real do Dolphin (290 km) e do Dolphin Mini (190 km).
+     Barras acima das linhas mudam de cor. A legenda mostra o % de dias cobertos por cada modelo.
+     (Um histograma em faixas esconderia os poucos dias longos, que são justamente o ponto.)
 3. **Onde você pode recarregar?** Segmentado: Em casa · No trabalho · Só na rua.
 4. **Resultado:** recalcula ao trocar a opção do passo 3.
 
@@ -379,8 +380,8 @@ Regras (todas precisam passar):
    Motivo: "Cobre só X% dos seus dias (mínimo 95%)".
 2. `modelo.categoria ≥ cliente.categoria`. Motivo: "Categoria inferior ao seu carro atual".
 3. A tarifa vem do perfil de recarga (`casa` 0,80; `trabalho` 1,00; `rua` 2,00).
-4. `economiaLiquida ≥ margem` (R$ 100). Motivo: "Economia abaixo da margem de segurança" ou
-   "Sem economia com esse perfil de recarga".
+4. `economiaLiquida ≥ margem` (R$ 100). Motivo: "Economia abaixo da margem de segurança" (positiva,
+   mas menor que a margem) ou "A economia com energia não cobre a diferença de mensalidade" (≤ 0).
 
 Entre os elegíveis, recomenda o de **maior economia líquida**. Sem elegíveis, `recomendado = null`.
 
@@ -450,8 +451,12 @@ Baixados das URLs do .json com confirmação prévia do usuário:
   `filter: brightness(0) invert(1)` no footer);
 - imagem principal do Dolphin;
 - 5 imagens dos modelos relacionados;
-- `graph_forms_full.svg` e `graph_forms.svg` (fundo decorativo);
 - `favicon.ico`.
+
+O fundo decorativo (`linhas.svg`) é desenhado no próprio protótipo: as SVGs originais
+(`graph_forms*.svg`) só são servidas pelo otimizador de imagens do Next.js, não diretamente. Os logos
+respondem 403 para `curl` e são extraídos pelo navegador; se falhar, usa-se um logo SVG de texto como
+fallback. A fonte Inter é self-hosted via `@fontsource/inter`.
 
 O formato de cada imagem é detectado pelo content-type, e a extensão é salva de acordo.
 
