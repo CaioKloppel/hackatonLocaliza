@@ -3,6 +3,7 @@ import { Footer } from './components/layout/Footer'
 import { Header } from './components/layout/Header'
 import { PrototypeBar } from './components/layout/PrototypeBar'
 import { useHashRoute } from './hooks/useHashRoute'
+import { AssinantePage } from './pages/AssinantePage/AssinantePage'
 import { ModeloPage } from './pages/ModeloPage/ModeloPage'
 
 export function App() {
@@ -11,7 +12,7 @@ export function App() {
     <>
       <PrototypeBar rota={rota} />
       <Header rota={rota} />
-      <ModeloPage params={params} />
+      {rota === 'assinante' ? <AssinantePage /> : <ModeloPage params={params} />}
       <Footer />
       <FloatingWhatsApp />
     </>

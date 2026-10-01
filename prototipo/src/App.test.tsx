@@ -41,4 +41,10 @@ describe('App', () => {
     await user.click(screen.getByRole('button', { name: /fale com um consultor/i }))
     expect(screen.getByRole('status')).toHaveTextContent('Link desativado no protótipo')
   })
+  it('#/assinante mostra a tela do assinante e troca o switch por um link de volta', () => {
+    renderComProviders(<App />, '/#/assinante')
+    expect(screen.getByRole('heading', { level: 1, name: 'Minha assinatura' })).toBeInTheDocument()
+    expect(screen.queryByRole('switch')).not.toBeInTheDocument()
+    expect(screen.getByRole('link', { name: '← Página do modelo' })).toHaveAttribute('href', '#/')
+  })
 })

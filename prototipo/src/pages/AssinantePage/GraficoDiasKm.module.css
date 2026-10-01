@@ -1,0 +1,24 @@
+.figura { margin-top: 16px; }
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 160px;
+  background: var(--c-bg);
+  border-radius: var(--r-main);
+}
+
+.dentro { fill: var(--c-primary-low); }
+.acimaDeAlguma { fill: var(--c-warning-high); }
+.acimaDeTodas { fill: var(--c-critical); }
+
+.linhaPrincipal { stroke: var(--c-secondary); stroke-width: 2; }
+.linhaSecundaria { stroke: var(--c-text-high); stroke-width: 1.5; stroke-dasharray: 6 4; }
+
+.legenda { margin-top: 8px; font: 400 12px/160% var(--font); color: var(--c-text-low); }
+.legenda ul { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.legenda li { display: flex; align-items: center; gap: 8px; color: var(--c-text); }
+
+.marcaPrincipal,
+.marcaSecundaria { display: inline-block; width: 20px; height: 0; border-top: 2px solid var(--c-secondary); }
+.marcaSecundaria { border-top: 2px dashed var(--c-text-high); }

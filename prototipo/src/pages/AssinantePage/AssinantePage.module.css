@@ -1,0 +1,145 @@
+.pagina { padding: 32px 16px 96px; }
+.container { display: flex; flex-direction: column; align-items: stretch; gap: 16px; max-width: 760px; margin: 0 auto; }
+.container > :first-child { align-self: flex-start; }
+
+.saudacao { font: 400 16px/24px var(--font); }
+.titulo { font: 700 40px/130% var(--font); color: var(--c-secondary); }
+
+.aviso {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: var(--r-soft);
+  background: var(--c-warning-lower);
+  color: var(--c-warning-contrast);
+}
+
+.carroAtual {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--r-soft);
+  background: #fff;
+  color: var(--c-icon);
+}
+
+.rotuloCarro { font: 400 12px/160% var(--font); color: var(--c-text-low); }
+.nomeCarro { font: 700 16px/24px var(--font); color: var(--c-text-high); }
+
+.stepper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+
+.passo,
+.passoAtual,
+.passoFeito {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 12px/160% var(--font);
+  color: var(--c-text-low);
+}
+
+.numeroPasso {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--c-border-low);
+  background: #fff;
+}
+
+.passoAtual { color: var(--c-secondary); }
+.passoAtual .numeroPasso { border-color: var(--c-secondary); background: var(--c-primary-lower); }
+.passoFeito .numeroPasso { border-color: var(--c-secondary); background: var(--c-secondary); color: #fff; }
+
+.cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  border-radius: var(--r-card);
+  background: #fff;
+}
+
+.tituloPasso {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 20px/28px var(--font);
+  color: var(--c-secondary);
+}
+
+.botoes { display: flex; flex-wrap: wrap; gap: 12px; }
+.status { font: 600 14px/21px var(--font); color: var(--c-focus); }
+
+.numeros { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.numeros dt { font: 400 12px/160% var(--font); color: var(--c-text-low); }
+.numeros dd { font: 700 20px/28px var(--font); color: var(--c-text-high); }
+
+.recomendacao { display: flex; flex-direction: column; gap: 12px; }
+
+.rotuloRecomendado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 2px 12px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary);
+  color: var(--c-primary-contrast);
+  font: 600 12px/160% var(--font);
+}
+
+.nomeModelo { font: 700 32px/130% var(--font); color: var(--c-secondary); }
+.imagemModelo { width: 100%; max-width: 420px; align-self: center; }
+.cobertura { font: 600 16px/24px var(--font); }
+
+.tabelaWrap { overflow-x: auto; }
+
+.tabela { width: 100%; min-width: 520px; border-collapse: collapse; font: 400 14px/21px var(--font); }
+.tabela th,
+.tabela td { padding: 12px 8px; border-bottom: 1px solid var(--c-paper-border); text-align: left; }
+.tabela thead th { font: 600 12px/160% var(--font); color: var(--c-text-low); }
+.tabela tbody th { font-weight: 600; }
+.linhaTotal th,
+.linhaTotal td { border-bottom: 0; font-weight: 700; color: var(--c-text-high); }
+.linhaTotal td:last-child { color: var(--c-secondary); }
+
+.economia {
+  padding: 16px 20px;
+  border-radius: var(--r-soft);
+  background: var(--c-primary-lower);
+  color: var(--c-primary-contrast);
+  font: 700 20px/28px var(--font);
+}
+
+.nota { font: 400 12px/160% var(--font); color: var(--c-text-low); }
+
+.semRecomendacao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  border-radius: var(--r-soft);
+  background: var(--c-bg);
+}
+
+.subtitulo { margin-top: 8px; font: 700 16px/24px var(--font); color: var(--c-text-high); }
+.outros { display: flex; flex-direction: column; gap: 12px; font: 400 14px/21px var(--font); }
+.motivos { margin-top: 4px; padding-left: 18px; list-style: disc; color: var(--c-text-low); }
+
+.privacidade { font: 400 12px/160% var(--font); color: var(--c-text-low); }
+
+@media (max-width: 671px) {
+  .titulo { font-size: 32px; }
+  .cartao { padding: 20px 16px; }
+  .numeros { grid-template-columns: 1fr 1fr; }
+  .nomePasso { display: none; }
+  .stepper { grid-template-columns: repeat(4, auto); justify-content: space-between; }
+  .botoes > * { width: 100%; }
+}
