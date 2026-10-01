@@ -1,0 +1,10 @@
+.estrelas { display: inline-flex; gap: 2px; vertical-align: middle; }
+.estrela { position: relative; display: inline-block; }
+.vazia { color: var(--c-border-low); fill: var(--c-border-low); }
+.cheia {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+  color: var(--c-warning-high);
+}
+.cheia svg { fill: var(--c-warning-high); }

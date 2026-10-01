@@ -1,0 +1,19 @@
+.chip,
+.ativo {
+  min-height: 36px;
+  padding: 0 16px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--c-border-low);
+  background: #fff;
+  color: var(--c-text);
+  font: 500 14px/21px var(--font);
+  cursor: pointer;
+}
+
+.ativo {
+  background: var(--c-primary-lower);
+  border-color: var(--c-secondary);
+  color: var(--c-primary-contrast);
+}
+
+.chip:hover { border-color: var(--c-border); }

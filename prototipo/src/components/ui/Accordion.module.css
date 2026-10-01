@@ -1,0 +1,36 @@
+.item {
+  padding: 24px 40px;
+  border-top: 1px solid var(--c-paper-border);
+}
+
+.tag { margin-bottom: 8px; }
+
+.cabecalho { font-size: inherit; }
+
+.gatilho {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--c-secondary);
+}
+
+.icone { display: inline-flex; color: var(--c-secondary); }
+.titulo { flex: 1; font: 700 16px/24px var(--font); }
+.contador { font: 700 14px/21px var(--font); }
+
+.chevron,
+.chevronAberto { transition: transform 0.2s ease; color: var(--c-secondary); }
+.chevronAberto { transform: rotate(180deg); }
+
+.painel { padding-top: 16px; }
+
+@media (max-width: 671px) {
+  .item { padding: 24px 16px; }
+}
