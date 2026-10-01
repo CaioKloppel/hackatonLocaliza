@@ -1,0 +1,27 @@
+.linha { display: flex; align-items: center; gap: 24px; }
+
+.voltar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: var(--r-main);
+  background: #fff;
+  color: var(--c-text);
+  cursor: pointer;
+}
+
+.lista { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lista li { display: inline-flex; align-items: center; gap: 8px; }
+.item { font: 600 16px/24px var(--font); color: var(--c-text-high); text-decoration: none; }
+.sep { color: var(--c-icon); }
+.atual { font: 600 20px/28px var(--font); color: var(--c-secondary); }
+
+@media (max-width: 671px) {
+  .linha { gap: 12px; }
+  .voltar { width: 48px; height: 48px; }
+  .atual { font-size: 16px; line-height: 24px; }
+}

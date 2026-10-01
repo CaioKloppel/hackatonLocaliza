@@ -1,0 +1,28 @@
+.bloco { margin-top: 24px; }
+.nota { font: 400 12px/160% var(--font); color: var(--c-text); }
+.titulo { font: 700 48px/120% var(--font); color: var(--c-secondary); }
+.versao { font: 700 16px/24px var(--font); color: var(--c-text); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  border: 1px solid var(--c-border-low);
+  color: var(--c-text-high);
+  font: 500 14px/21px var(--font);
+  text-decoration: none;
+}
+
+.chip:hover { border-color: var(--c-secondary); }
+.chipIcone { color: var(--c-secondary); }
+.estrela { color: var(--c-warning-high); fill: var(--c-warning-high); }
+
+@media (max-width: 671px) {
+  .titulo { font-size: 32px; line-height: 130%; }
+}

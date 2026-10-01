@@ -1,0 +1,115 @@
+.secao { padding: 64px 0 32px; }
+
+.titulo {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font: 400 40px/52px var(--font);
+  color: var(--c-text);
+}
+
+.palco { display: flex; align-items: center; gap: 8px; }
+
+.seta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  background: none;
+  color: var(--c-icon);
+  cursor: pointer;
+}
+
+.seta:disabled { opacity: 0.3; cursor: default; }
+
+.trilho {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 40px 0 8px;
+}
+
+.trilho::-webkit-scrollbar { display: none; }
+
+.slide { flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  border-radius: var(--r-card);
+  background: #fff;
+}
+
+.imagemArea {
+  display: flex;
+  justify-content: center;
+  border-radius: var(--r-soft);
+  background: linear-gradient(180deg, var(--c-primary) 0%, rgba(255, 255, 255, 0) 85%);
+  height: 140px;
+}
+
+.imagem { width: 100%; height: 170px; object-fit: contain; margin-top: -40px; }
+
+.entrega {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  margin-top: 8px;
+  padding: 0 16px 0 8px;
+  border-radius: var(--r-pill);
+  background: var(--c-primary);
+  color: var(--c-primary-contrast);
+  font: 500 14px/1 var(--font);
+}
+
+.nome { margin-top: 16px; font: 600 20px/28px var(--font); color: var(--c-text); }
+.versao { font: 700 16px/24px var(--font); color: var(--c-secondary); }
+.categoria { font: 400 12px/160% var(--font); }
+
+.destaques {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 12px 0 16px;
+  font: 400 12px/160% var(--font);
+}
+
+.destaques li { display: inline-flex; align-items: center; gap: 6px; }
+
+.acoes { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+
+.dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+
+.dot,
+.dotAtivo {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--c-border-low);
+  cursor: pointer;
+}
+
+.dotAtivo { width: 32px; background: var(--c-primary); }
+
+@media (max-width: 1199px) {
+  .slide { flex-basis: calc((100% - 24px) / 2); }
+}
+
+@media (max-width: 671px) {
+  .titulo { font-size: 24px; line-height: 140%; }
+  .seta { display: none; }
+  .slide { flex-basis: 85%; }
+}

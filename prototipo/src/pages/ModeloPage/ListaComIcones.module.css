@@ -1,0 +1,35 @@
+.lista { display: flex; flex-direction: column; gap: 40px; }
+.item { display: flex; align-items: flex-start; gap: 24px; }
+
+.iconeIncluso,
+.iconeAdicional {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--c-primary-low);
+  color: var(--c-primary-contrast);
+}
+
+.iconeAdicional { background: var(--c-secondary); color: #fff; }
+
+.titulo { font: 700 16px/24px var(--font); color: var(--c-text); }
+.descricao { margin-top: 4px; font: 400 14px/21px var(--font); white-space: pre-line; }
+
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 40px;
+  font: 400 14px/21px var(--font);
+}
+
+@media (max-width: 671px) {
+  .item { gap: 16px; }
+  .iconeIncluso, .iconeAdicional { width: 56px; height: 56px; }
+  .rodape { flex-direction: column; align-items: stretch; }
+}
