@@ -28,9 +28,14 @@ export function PrototypeBar({ rota }: { rota: Rota }) {
           <a className={styles.link} href="#/">← Página do modelo</a>
         )}
         {rota === 'modelo' && (
-          <a className={styles.linkAssinante} href="#/assinante" onClick={() => setModo('proposta')}>
-            Tela do assinante (V3B)
-          </a>
+          <span className={styles.links}>
+            <a className={styles.linkAssinante} href="#/relatorio" onClick={() => setModo('proposta')}>
+              Relatório do dia 25 (V1)
+            </a>
+            <a className={styles.linkAssinante} href="#/assinante" onClick={() => setModo('proposta')}>
+              Tela do assinante (V3B)
+            </a>
+          </span>
         )}
       </div>
     </div>

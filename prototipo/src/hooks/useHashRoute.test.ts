@@ -8,6 +8,10 @@ describe('lerHash', () => {
     expect(lerHash('#/').rota).toBe('modelo')
   })
 
+  it('reconhece o relatório do dia 25', () => {
+    expect(lerHash('#/relatorio').rota).toBe('relatorio')
+  })
+
   it('reconhece a tela do assinante', () => {
     expect(lerHash('#/assinante').rota).toBe('assinante')
   })

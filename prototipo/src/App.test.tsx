@@ -62,4 +62,15 @@ it('link ?modo=atual#/assinante força o modo proposta', () => {
     expect(window.location.hash).toBe('#/')
     expect(window.scrollTo).not.toHaveBeenCalled()
   })
+it('#/relatorio abre o relatório do dia 25 em modo proposta', () => {
+    renderComProviders(<App />, '/?modo=atual#/relatorio')
+    expect(screen.getByRole('button', { name: /seu mês em números está pronto/i })).toBeInTheDocument()
+    expect(window.location.search).toBe('?modo=proposta')
+    expect(screen.queryByRole('switch')).not.toBeInTheDocument()
+  })
+
+  it('barra do protótipo tem link para o relatório do dia 25', () => {
+    renderComProviders(<App />)
+    expect(screen.getByRole('link', { name: 'Relatório do dia 25 (V1)' })).toHaveAttribute('href', '#/relatorio')
+  })
 })

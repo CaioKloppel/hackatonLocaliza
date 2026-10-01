@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export type Rota = 'modelo' | 'assinante'
+export type Rota = 'modelo' | 'assinante' | 'relatorio'
 
 export interface EstadoHash {
   rota: Rota
@@ -10,7 +10,7 @@ export interface EstadoHash {
 export function lerHash(hash: string): EstadoHash {
   const semCerquilha = hash.replace(/^#/, '')
   const [caminho, query = ''] = semCerquilha.split('?')
-  const rota: Rota = caminho === '/assinante' ? 'assinante' : 'modelo'
+  const rota: Rota = caminho === '/assinante' ? 'assinante' : caminho === '/relatorio' ? 'relatorio' : 'modelo'
   return { rota, params: new URLSearchParams(query) }
 }
 
@@ -26,6 +26,6 @@ export function useHashRoute(): EstadoHash {
 
 export function limparParamsHash(): void {
   const { rota } = lerHash(window.location.hash)
-  const hash = rota === 'assinante' ? '#/assinante' : '#/'
+  const hash = rota === 'modelo' ? '#/' : `#/${rota}`
   window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${hash}`)
 }

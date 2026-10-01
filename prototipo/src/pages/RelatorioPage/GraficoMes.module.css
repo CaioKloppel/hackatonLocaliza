@@ -1,0 +1,38 @@
+.figura { margin-top: 8px; }
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 200px;
+  background: var(--c-bg);
+  border-radius: var(--r-main);
+}
+
+.barra { fill: var(--c-primary-low); }
+.barraAcima { fill: var(--c-critical); }
+
+.linha { stroke: var(--c-secondary); stroke-width: 2; stroke-dasharray: 6 4; }
+
+.recarga_casa { fill: var(--c-secondary); }
+.recarga_trabalho { fill: var(--c-info-contrast); }
+.recarga_rua { fill: var(--c-warning-high); }
+
+.legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 8px;
+  font: 400 12px/160% var(--font);
+  color: var(--c-text);
+}
+
+.legenda span { display: inline-flex; align-items: center; gap: 6px; }
+
+.marcaLinha { display: inline-block; width: 18px; border-top: 2px dashed var(--c-secondary); }
+
+.ponto_casa,
+.ponto_trabalho,
+.ponto_rua { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.ponto_casa { background: var(--c-secondary); }
+.ponto_trabalho { background: var(--c-info-contrast); }
+.ponto_rua { background: var(--c-warning-high); }

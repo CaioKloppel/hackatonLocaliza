@@ -46,6 +46,8 @@
 
 .switch:focus-visible { outline-color: var(--c-primary-lower); }
 
+.links { display: inline-flex; gap: 16px; }
+
 .link,
 .linkAssinante { color: var(--c-primary-lower); }
 
@@ -54,7 +56,7 @@
 }
 
 @media (max-width: 671px) {
-  .rotulo,
-  .linkAssinante { display: none; }
-  .conteudo { justify-content: center; }
+  .rotulo { display: none; }
+  .conteudo { flex-wrap: wrap; justify-content: center; row-gap: 4px; padding: 6px 16px; }
+  .links { width: 100%; justify-content: center; font-size: 12px; }
 }
