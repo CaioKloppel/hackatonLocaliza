@@ -1,0 +1,75 @@
+.card {
+  background: #fff;
+  border-radius: var(--r-soft);
+  padding: 32px;
+}
+
+.titulo { font: 700 24px/33.6px var(--font); color: var(--c-secondary); }
+.subtitulo { margin-top: 4px; font: 400 16px/24px var(--font); }
+
+.whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  margin-top: 24px;
+  padding: 8px 8px 8px 16px;
+  background: var(--c-bg);
+  border-radius: var(--r-soft);
+  font: 400 14px/21px var(--font);
+}
+
+.whatsappBotao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: var(--r-main);
+  background: var(--c-secondary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 16px;
+  margin: 24px 0 8px;
+}
+
+.inteiro { grid-column: 1 / -1; }
+
+.opcoes { display: flex; flex-direction: column; }
+
+.rodape { display: flex; justify-content: flex-end; margin-top: 24px; }
+.enviar { min-width: 200px; }
+
+.legal { margin-top: 24px; font: 400 12px/160% var(--font); color: var(--c-text-low); }
+
+.sucesso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 0;
+  text-align: center;
+}
+
+.sucessoIcone { color: var(--c-secondary); }
+
+@media (min-width: 1200px) {
+  .card {
+    max-height: calc(100vh - var(--header-h) - 48px);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 671px) {
+  .card { padding: 24px 16px; }
+  .grade { grid-template-columns: 1fr; }
+  .enviar { width: 100%; }
+}
