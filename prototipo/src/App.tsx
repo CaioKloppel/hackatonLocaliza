@@ -6,12 +6,12 @@ import { useHashRoute } from './hooks/useHashRoute'
 import { ModeloPage } from './pages/ModeloPage/ModeloPage'
 
 export function App() {
-  const { rota } = useHashRoute()
+  const { rota, params } = useHashRoute()
   return (
     <>
       <PrototypeBar rota={rota} />
       <Header rota={rota} />
-      <ModeloPage />
+      <ModeloPage params={params} />
       <Footer />
       <FloatingWhatsApp />
     </>

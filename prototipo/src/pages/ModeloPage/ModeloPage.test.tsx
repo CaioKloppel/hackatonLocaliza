@@ -6,7 +6,7 @@ import { ModeloPage } from './ModeloPage'
 
 describe('ModeloPage — conteúdo existente', () => {
   it('mostra título, versão e formulário', () => {
-    renderComProviders(<ModeloPage />)
+    renderComProviders(<ModeloPage params={new URLSearchParams()} />)
     expect(screen.getByRole('heading', { level: 1, name: 'BYD Dolphin' })).toBeInTheDocument()
     expect(screen.getByText('EV 44KW Elétrico AT')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Preencha seus dados' })).toBeInTheDocument()
@@ -14,7 +14,7 @@ describe('ModeloPage — conteúdo existente', () => {
 
   it('busca de itens de série ignora acentos e atualiza o contador', async () => {
     const user = userEvent.setup()
-    renderComProviders(<ModeloPage />)
+    renderComProviders(<ModeloPage params={new URLSearchParams()} />)
     const secao = document.getElementById('itens-de-serie')!
     const lista = () => within(secao).queryAllByRole('listitem')
     expect(lista()).toHaveLength(19)
@@ -32,7 +32,7 @@ describe('ModeloPage — conteúdo existente', () => {
 
   it('seletor de cor troca a cor ativa e o nome', async () => {
     const user = userEvent.setup()
-    renderComProviders(<ModeloPage />)
+    renderComProviders(<ModeloPage params={new URLSearchParams()} />)
     const grupo = screen.getByRole('radiogroup', { name: 'Cor do veículo' })
     await user.click(within(grupo).getByRole('radio', { name: 'Preto' }))
     expect(within(grupo).getByRole('radio', { name: 'Preto' })).toHaveAttribute('aria-checked', 'true')
@@ -40,7 +40,7 @@ describe('ModeloPage — conteúdo existente', () => {
   })
 
   it('lista incluso (12) e adicionais (5)', () => {
-    renderComProviders(<ModeloPage />)
+    renderComProviders(<ModeloPage params={new URLSearchParams()} />)
     expect(within(document.getElementById('incluso')!).getAllByRole('heading', { level: 3 })).toHaveLength(12)
     expect(within(document.getElementById('adicionais')!).getAllByRole('heading', { level: 3 })).toHaveLength(5)
     expect(screen.getByText('e muito mais!').tagName).toBe('STRONG')
@@ -48,7 +48,7 @@ describe('ModeloPage — conteúdo existente', () => {
 
   it('carrossel mostra 5 modelos e links desativados avisam', async () => {
     const user = userEvent.setup()
-    renderComProviders(<ModeloPage />)
+    renderComProviders(<ModeloPage params={new URLSearchParams()} />)
     const carrossel = screen.getByRole('region', { name: /outros modelos/i })
     expect(within(carrossel).getAllByRole('article')).toHaveLength(5)
     expect(within(carrossel).getAllByText('Entrega rápida')).toHaveLength(1)

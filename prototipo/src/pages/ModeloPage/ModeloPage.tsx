@@ -1,9 +1,14 @@
 import { ArrowLeft } from 'lucide-react'
+import { useEffect } from 'react'
 import { Button } from '../../components/ui/Button'
 import { MSG_DESATIVADO, useToast } from '../../components/ui/Toast'
 import { adicionais, inclusoNaAssinatura } from '../../data/dolphin'
-import { InicioProvider } from '../../features/mes-de-teste/InicioContext'
+import { InicioProvider, useInicio } from '../../features/mes-de-teste/InicioContext'
+import { MesDeTesteSection } from '../../features/mes-de-teste/MesDeTesteSection'
+import { limparParamsHash } from '../../hooks/useHashRoute'
 import { asset } from '../../lib/asset'
+import { rolarParaOrcamento } from '../../lib/rolagem'
+import { useModo } from '../../modo/ModoContext'
 import { Breadcrumb } from './Breadcrumb'
 import { ItensDeSerie } from './ItensDeSerie'
 import { ListaComIcones } from './ListaComIcones'
@@ -13,10 +18,29 @@ import { RelatedCarousel } from './RelatedCarousel'
 import { TitleBlock } from './TitleBlock'
 import { VehicleCard } from './VehicleCard'
 
-export function ModeloPage() {
+function AplicarParametroTeste({ params }: { params: URLSearchParams }) {
+  const { setInicio } = useInicio()
+  const { setModo } = useModo()
+  useEffect(() => {
+    if (params.get('teste') === '1') {
+      setModo('proposta')
+      setInicio('teste')
+      limparParamsHash()
+      rolarParaOrcamento()
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [params, setInicio, setModo])
+  return null
+}
+
+export function ModeloPage({ params }: { params: URLSearchParams }) {
   const toast = useToast()
+  const { modo } = useModo()
+  const proposta = modo === 'proposta'
   return (
     <InicioProvider>
+      <AplicarParametroTeste params={params} />
       <main className={styles.pagina} style={{ backgroundImage: `url(${asset('assets/decor/linhas.svg')})` }}>
         <div className={styles.container}>
           <Breadcrumb />
@@ -25,6 +49,7 @@ export function ModeloPage() {
             <div className={styles.esquerda}>
               <VehicleCard />
               <ItensDeSerie />
+              {proposta && <MesDeTesteSection />}
               <ListaComIcones
                 id="incluso"
                 titulo="Incluso na assinatura"
