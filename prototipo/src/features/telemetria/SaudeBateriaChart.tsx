@@ -2,16 +2,17 @@ import type { PontoSaude } from '../../data/telemetria'
 import styles from './SaudeBateriaChart.module.css'
 
 const LARGURA = 260
-const ALTURA = 96
+const ALTURA = 104
 const MARGEM = 12
-const BASE_GRAFICO = 68
+const BASE_GRAFICO = 76
+const TOPO = 22
 const PCT_MIN = 94
 const PCT_MAX = 100
 
 export function SaudeBateriaChart({ pontos }: { pontos: PontoSaude[] }) {
   const ultimoMes = pontos[pontos.length - 1]?.meses || 1
   const x = (meses: number) => MARGEM + (meses / ultimoMes) * (LARGURA - 2 * MARGEM)
-  const y = (pct: number) => MARGEM + ((PCT_MAX - pct) / (PCT_MAX - PCT_MIN)) * (BASE_GRAFICO - MARGEM)
+  const y = (pct: number) => TOPO + ((PCT_MAX - pct) / (PCT_MAX - PCT_MIN)) * (BASE_GRAFICO - TOPO)
   const caminho = pontos.map((p, i) => `${i === 0 ? 'M' : 'L'}${x(p.meses).toFixed(1)},${y(p.pct).toFixed(1)}`).join(' ')
   const descricao = pontos.map((p) => `${p.meses} meses: ${p.pct}%`).join('; ')
 

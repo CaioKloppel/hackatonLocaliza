@@ -5,6 +5,8 @@
 .saudacao { font: 400 16px/24px var(--font); }
 .titulo { font: 700 40px/130% var(--font); color: var(--c-secondary); }
 
+.aviso svg { flex: none; }
+
 .aviso {
   display: flex;
   align-items: center;
@@ -142,4 +144,8 @@
   .nomePasso { display: none; }
   .stepper { grid-template-columns: repeat(4, auto); justify-content: space-between; }
   .botoes > * { width: 100%; }
+  .tabela { min-width: 0; font-size: 12px; line-height: 160%; }
+  .tabela th,
+  .tabela td { padding: 8px 4px; }
+  .tabela thead th { font-size: 11px; }
 }
