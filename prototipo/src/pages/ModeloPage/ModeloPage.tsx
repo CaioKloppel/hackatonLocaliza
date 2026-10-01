@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Button } from '../../components/ui/Button'
 import { MSG_DESATIVADO, useToast } from '../../components/ui/Toast'
 import { adicionais, inclusoNaAssinatura } from '../../data/dolphin'
+import { AvaliacoesSection } from '../../features/avaliacoes/AvaliacoesSection'
 import { InicioProvider, useInicio } from '../../features/mes-de-teste/InicioContext'
 import { MesDeTesteSection } from '../../features/mes-de-teste/MesDeTesteSection'
 import { DadosFrotaSection } from '../../features/telemetria/DadosFrotaSection'
@@ -50,8 +51,13 @@ export function ModeloPage({ params }: { params: URLSearchParams }) {
             <div className={styles.esquerda}>
               <VehicleCard />
               <ItensDeSerie />
-              {proposta && <DadosFrotaSection />}
-              {proposta && <MesDeTesteSection />}
+              {proposta && (
+                <>
+                  <DadosFrotaSection />
+                  <AvaliacoesSection />
+                  <MesDeTesteSection />
+                </>
+              )}
               <ListaComIcones
                 id="incluso"
                 titulo="Incluso na assinatura"
