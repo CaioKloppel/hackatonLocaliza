@@ -7,9 +7,15 @@ import './styles/global.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './App'
+import { ToastProvider } from './components/ui/Toast'
+import { ModoProvider } from './modo/ModoContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <ModoProvider>
+      <ToastProvider>
+        <App />
+      </ToastProvider>
+    </ModoProvider>
   </StrictMode>,
 )

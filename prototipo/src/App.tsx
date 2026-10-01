@@ -1,3 +1,19 @@
+import { FloatingWhatsApp } from './components/layout/FloatingWhatsApp'
+import { Footer } from './components/layout/Footer'
+import { Header } from './components/layout/Header'
+import { PrototypeBar } from './components/layout/PrototypeBar'
+import { useHashRoute } from './hooks/useHashRoute'
+import { ModeloPage } from './pages/ModeloPage/ModeloPage'
+
 export function App() {
-  return <main>Protótipo Localiza Assinatura</main>
+  const { rota } = useHashRoute()
+  return (
+    <>
+      <PrototypeBar rota={rota} />
+      <Header rota={rota} />
+      <ModeloPage />
+      <Footer />
+      <FloatingWhatsApp />
+    </>
+  )
 }

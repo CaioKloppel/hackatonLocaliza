@@ -1,0 +1,46 @@
+.botao {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 256px;
+  height: 56px;
+  border: 0;
+  border-radius: var(--r-soft);
+  background: var(--c-secondary);
+  color: #fff;
+  font: 600 16px/24px var(--font);
+  box-shadow: var(--shadow-high);
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--c-critical);
+  color: #fff;
+  font: 700 12px/1 var(--font);
+}
+
+@media (max-width: 671px) {
+  .botao { right: 16px; bottom: 16px; width: 56px; }
+  .rotulo {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}
