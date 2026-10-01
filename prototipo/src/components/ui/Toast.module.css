@@ -1,0 +1,18 @@
+.regiao {
+  position: fixed;
+  left: 50%;
+  bottom: 104px;
+  transform: translateX(-50%);
+  z-index: 60;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--c-inverse);
+  color: #fff;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: var(--r-main);
+  box-shadow: var(--shadow-high);
+  white-space: nowrap;
+}
