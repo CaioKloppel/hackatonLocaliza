@@ -5,6 +5,7 @@ import { MSG_DESATIVADO, useToast } from '../../components/ui/Toast'
 import { adicionais, inclusoNaAssinatura } from '../../data/dolphin'
 import { InicioProvider, useInicio } from '../../features/mes-de-teste/InicioContext'
 import { MesDeTesteSection } from '../../features/mes-de-teste/MesDeTesteSection'
+import { DadosFrotaSection } from '../../features/telemetria/DadosFrotaSection'
 import { limparParamsHash } from '../../hooks/useHashRoute'
 import { asset } from '../../lib/asset'
 import { rolarParaOrcamento } from '../../lib/rolagem'
@@ -49,6 +50,7 @@ export function ModeloPage({ params }: { params: URLSearchParams }) {
             <div className={styles.esquerda}>
               <VehicleCard />
               <ItensDeSerie />
+              {proposta && <DadosFrotaSection />}
               {proposta && <MesDeTesteSection />}
               <ListaComIcones
                 id="incluso"

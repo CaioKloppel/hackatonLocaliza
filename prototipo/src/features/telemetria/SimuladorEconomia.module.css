@@ -1,0 +1,51 @@
+.simulador {
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: var(--r-soft);
+  background: var(--c-bg);
+}
+
+.titulo { font: 700 20px/28px var(--font); color: var(--c-text-high); }
+
+.campos { display: flex; flex-direction: column; gap: 20px; margin-top: 16px; }
+
+.slider { display: flex; flex-direction: column; gap: 8px; }
+.slider input { width: 100%; accent-color: var(--c-secondary); min-height: 44px; }
+
+.rotulo {
+  display: flex;
+  justify-content: space-between;
+  font: 600 16px/24px var(--font);
+  color: var(--c-text);
+}
+
+.valorSlider { font-weight: 700; color: var(--c-secondary); }
+
+.resultado {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: var(--r-soft);
+  background: #fff;
+  min-height: 72px;
+}
+
+.rotuloResultado { font: 400 14px/21px var(--font); }
+.valor { font: 700 32px/130% var(--font); color: var(--c-secondary); }
+.ano { font: 600 16px/24px var(--font); }
+
+.premissas { margin-top: 16px; font: 400 12px/160% var(--font); color: var(--c-text-low); }
+.premissas summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; }
+.premissas ul { list-style: disc; padding-left: 18px; }
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 8px;
+  font: 600 14px/21px var(--font);
+  color: var(--c-secondary);
+}
+
+@media (max-width: 671px) {
+  .simulador { padding: 16px; }
+}

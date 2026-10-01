@@ -1,0 +1,6 @@
+.grafico { width: 100%; max-width: 320px; height: auto; margin-top: 8px; }
+.eixo { stroke: var(--c-border-low); stroke-width: 1; }
+.linha { fill: none; stroke: var(--c-secondary); stroke-width: 2; }
+.ponto { fill: var(--c-secondary); }
+.valor { font: 600 10px var(--font); fill: var(--c-text-high); }
+.rotulo { font: 400 10px var(--font); fill: var(--c-text-low); }

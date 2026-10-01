@@ -1,0 +1,32 @@
+.grade { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.fato {
+  padding: 20px;
+  border: 1px solid var(--c-paper-border);
+  border-radius: var(--r-soft);
+  background: #fff;
+}
+
+.pergunta {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font: 700 16px/24px var(--font);
+  color: var(--c-text-high);
+}
+
+.iconeFato { flex: none; margin-top: 2px; color: var(--c-secondary); }
+
+.resposta { margin-top: 12px; font: 400 14px/21px var(--font); }
+
+.numero { font: 700 24px/33.6px var(--font); color: var(--c-secondary); }
+
+.duplo { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+
+.legenda { color: var(--c-text-low); }
+
+.base { margin-top: 16px; font: 400 12px/160% var(--font); color: var(--c-text-low); }
+
+@media (max-width: 671px) {
+  .grade { grid-template-columns: 1fr; }
+}
